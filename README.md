@@ -1,0 +1,3 @@
+# Ocho y media
+
+Proyecto realizado para poder ejecutar/lanzar todas las tareas/aplicaciones cuyo uso es frecuente, por ejemploel explorador de archivos en una carpeta especifica, el navegador un una pestaña del correo, los editores de texto habituales, etc...
