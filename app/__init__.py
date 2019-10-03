@@ -1,7 +1,7 @@
-from .ui.MainMenu import MainMenu
+from .view.MainMenuView import MainMenuView
 
 def run():
-    menu = MainMenu()
+    menu = MainMenuView()
     menu.display()
 
 # __all__ = [

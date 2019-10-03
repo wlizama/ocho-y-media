@@ -1,8 +1,8 @@
 from PyInquirer import prompt
-from ..actions.ExecYOchoMedia import ExecYOchoMedia
-from ..actions.ActionsController import ActionsController
+from ..controller.OchoYMediaController import OchoYMediaController
+from ..controller.ActionController import ActionController
 
-class MainMenu:
+class MainMenuView:
     __QUESTIONS = [
         {
             'type': 'list',
@@ -12,22 +12,22 @@ class MainMenu:
                 {
                     'value': 'exc',
                     'name': 'Ejecutar 08:30',
-                    'action': ExecYOchoMedia.fnTest
+                    'action': OchoYMediaController.fnTest
                 },
                 {
                     'value': 'add',
                     'name': 'Agregar nueva tarea',
-                    'action': ActionsController.execAddAction
+                    'action': ActionController.execAddAction
                 },
                 {
                     'value': 'lst',
                     'name': 'Mostar lista de tareas',
-                    'action': ActionsController.execListAction
+                    'action': ActionController.execListAction
                 }
             ]
         }
     ]
-    
+
 
     def __getAnswer(self):
         return prompt(self.__QUESTIONS)

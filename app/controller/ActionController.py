@@ -1,5 +1,5 @@
 
-class ActionsController:
+class ActionController:
     
     def execAddAction():
         print("Ejecutar accion Agregar")
