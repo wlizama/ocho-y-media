@@ -1,5 +1,5 @@
 from PyInquirer import prompt
-from ..controller.ActionExecutorController import ActionExecutorController
+from ..controller.ActionController import ActionController
 
 class ActionView:
     __QUESTIONS = [
@@ -14,15 +14,9 @@ class ActionView:
             'message': 'Ingrese descripción',
         },
         {
-            'type': 'list',
-            'name': 'action_lang',
-            'message': '¿Que lenguaje ejecutará la acción?',
-            'choices': ActionExecutorController.getActionTypeList()
-        },
-        {
             'type': 'input',
-            'name': 'file_src',
-            'message': 'Ingresar ubicación de archivo',
+            'name': 'action_path',
+            'message': 'Ubicación de script a ejecutar',
         }
     ]
 
@@ -30,4 +24,11 @@ class ActionView:
     @staticmethod
     def displayNew():
         answers = prompt(ActionView.__QUESTIONS)
-        print(answers)
+        objActionController = ActionController()
+        uid = objActionController.execAddAction(answers)
+        # ActionController.execAddAction(answers)
+
+
+    @staticmethod
+    def displayList():
+        pass

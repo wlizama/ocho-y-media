@@ -22,7 +22,7 @@ class MainMenuView:
                 {
                     'value': 'lst',
                     'name': 'Mostar lista de acciones',
-                    # 'action': ActionController.execListAction
+                    'action': ActionView.displayList
                 }
             ]
         }
