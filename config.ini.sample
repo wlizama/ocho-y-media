@@ -1,0 +1,5 @@
+[BD_CONNECTION]
+bdip = localhost
+database = my_bd_name
+user = my_user_bd_name
+password = my_password_user_db

@@ -1,6 +1,6 @@
 from PyInquirer import prompt
 from ..controller.OchoYMediaController import OchoYMediaController
-from ..controller.ActionController import ActionController
+from ..view.ActionView import ActionView
 
 class MainMenuView:
     __QUESTIONS = [
@@ -16,13 +16,13 @@ class MainMenuView:
                 },
                 {
                     'value': 'add',
-                    'name': 'Agregar nueva tarea',
-                    'action': ActionController.execAddAction
+                    'name': 'Agregar nueva accion',
+                    'action': ActionView.displayNew
                 },
                 {
                     'value': 'lst',
-                    'name': 'Mostar lista de tareas',
-                    'action': ActionController.execListAction
+                    'name': 'Mostar lista de acciones',
+                    # 'action': ActionController.execListAction
                 }
             ]
         }

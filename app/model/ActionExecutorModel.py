@@ -1,4 +1,4 @@
-class ActionTypeModel:
+class ActionExecutorModel:
 
     def __init__(self, uid, description, action_script):
         self.__uid = uid
