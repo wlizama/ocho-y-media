@@ -2,15 +2,17 @@ from ..dao.SQLServerConnection import SQLServerConnection
 
 class ActionController:
 
+    def __init__(self):
+        self.__sql_con = SQLServerConnection()
+
+
     def execAddAction(self, action_vals):
-        """
-        Agregar nueva acción
-        :return:
-        """
-        print("Ejecutar Agregar acción")
-        sqc = SQLServerConnection()
-        sqc.connect()
-        return 1
+        uid = self.__sql_con.execute_insert(
+            "action",
+            ("name", "description", "action_path"),
+            (action_vals["name"], action_vals["description"], action_vals["action_path"])
+        )
+        return uid
 
     def execListAction():
         print("Ejecutar accion Listar")

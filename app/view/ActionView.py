@@ -26,7 +26,10 @@ class ActionView:
         answers = prompt(ActionView.__QUESTIONS)
         objActionController = ActionController()
         uid = objActionController.execAddAction(answers)
-        # ActionController.execAddAction(answers)
+        print(f"""Se ingresó acción:
+        ID   : {uid}
+        Name : {answers["name"]}\
+        """)
 
 
     @staticmethod
