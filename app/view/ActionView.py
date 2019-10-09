@@ -7,6 +7,8 @@ class ActionView:
             'type': 'input',
             'name': 'name',
             'message': 'Nombre de acción',
+            'validate': lambda val: 'El nombre de la tarea es obligatorio' \
+                if len(val.strip()) == 0 else True
         },
         {
             'type': 'input',
@@ -17,6 +19,8 @@ class ActionView:
             'type': 'input',
             'name': 'action_path',
             'message': 'Ubicación de script a ejecutar',
+            'validate': lambda val: 'Debe ingresar la ruta del script' \
+                if len(val.strip()) == 0 else True
         }
     ]
 
