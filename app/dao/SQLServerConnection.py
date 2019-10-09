@@ -41,3 +41,12 @@ class SQLServerConnection:
         self.__con.close()
 
         return returnId
+
+
+    def execute_list(self, table, cols="", cond=""):
+        str_cols = "*" if len(cols.strip()) == 0 else cols
+        str_cond = "" if len(cond.strip()) == 0 else f" WHERE {cond}"
+
+        cursor = self.__get_cursor()
+        cursor.execute(f"SELECT {str_cols} from {table}{str_cond};")
+        return cursor.fetchall()

@@ -6,7 +6,7 @@ class ActionController:
         self.__sql_con = SQLServerConnection()
 
 
-    def execAddAction(self, action_vals):
+    def add_action(self, action_vals):
         uid = self.__sql_con.execute_insert(
             "action",
             ("name", "description", "action_path"),
@@ -14,5 +14,7 @@ class ActionController:
         )
         return uid
 
-    def execListAction():
-        print("Ejecutar accion Listar")
+
+    def get_actions_list(self):
+        list = self.__sql_con.execute_list("action")
+        return list

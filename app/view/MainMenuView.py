@@ -17,23 +17,23 @@ class MainMenuView:
                 {
                     'value': 'add',
                     'name': 'Agregar nueva accion',
-                    'action': ActionView.displayNew
+                    'action': ActionView.display_new
                 },
                 {
                     'value': 'lst',
                     'name': 'Mostar lista de acciones',
-                    'action': ActionView.displayList
+                    'action': ActionView.display_list
                 }
             ]
         }
     ]
 
 
-    def __getAnswer(self):
+    def __get_answer(self):
         return prompt(self.__QUESTIONS)
     
 
-    def __executeAction(self, action_val):
+    def __execute_action(self, action_val):
         choices = self.__QUESTIONS[0]["choices"]
         choice_val = action_val["opciones"]
         selected_choice = None
@@ -46,5 +46,5 @@ class MainMenuView:
 
 
     def display(self):
-        answer = self.__getAnswer()
-        self.__executeAction(answer)
+        answer = self.__get_answer()
+        self.__execute_action(answer)

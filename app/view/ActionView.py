@@ -1,4 +1,5 @@
 from PyInquirer import prompt
+from terminaltables import SingleTable
 from ..controller.ActionController import ActionController
 
 class ActionView:
@@ -26,10 +27,10 @@ class ActionView:
 
 
     @staticmethod
-    def displayNew():
+    def display_new():
         answers = prompt(ActionView.__QUESTIONS)
         objActionController = ActionController()
-        uid = objActionController.execAddAction(answers)
+        uid = objActionController.add_action(answers)
         print(f"""Se ingresó acción:
         ID   : {uid}
         Name : {answers["name"]}\
@@ -37,5 +38,11 @@ class ActionView:
 
 
     @staticmethod
-    def displayList():
-        pass
+    def display_list():
+        objActionController = ActionController()
+        data = []
+        data.append(("ID", "Name", "Description", "Script Source"))
+        list = objActionController.get_actions_list()
+        data.extend(list)
+        table = SingleTable(data)
+        print(table.table)
