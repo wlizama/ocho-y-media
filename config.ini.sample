@@ -1,4 +1,4 @@
-[BD_CONNECTION]
+[BD_CONNECTION.SQL_Server]
 bdip = localhost
 database = my_bd_name
 user = my_user_bd_name
