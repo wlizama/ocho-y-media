@@ -1,6 +1,23 @@
-from PyInquirer import prompt
+from PyInquirer import prompt, Validator, ValidationError
 from terminaltables import SingleTable
+import os
 from ..controller.ActionController import ActionController
+
+
+class ActionPathValidator(Validator):
+    def validate(self, document):
+        # validar ruta vacia
+        is_empty = True if len(document.text.strip()) == 0 else False
+        if is_empty:
+            raise ValidationError(
+                message='Debe ingresar la ruta del script.',
+                cursor_position=len(document.text))  # Move cursor to end
+
+        if not os.path.isfile(document.text):
+            raise ValidationError(
+                message=f'El archivo "{document.text}" no existe.',
+                cursor_position=len(document.text))  # Move cursor to end
+
 
 class ActionView:
     __QUESTIONS = [
@@ -8,7 +25,7 @@ class ActionView:
             'type': 'input',
             'name': 'name',
             'message': 'Nombre de acción',
-            'validate': lambda val: 'El nombre de la tarea es obligatorio' \
+            'validate': lambda val: 'El nombre de la tarea es obligatorio.' \
                 if len(val.strip()) == 0 else True
         },
         {
@@ -20,8 +37,7 @@ class ActionView:
             'type': 'input',
             'name': 'action_path',
             'message': 'Ubicación de script a ejecutar',
-            'validate': lambda val: 'Debe ingresar la ruta del script' \
-                if len(val.strip()) == 0 else True
+            'validate': ActionPathValidator
         }
     ]
 
@@ -46,3 +62,8 @@ class ActionView:
         data.extend(list)
         table = SingleTable(data)
         print(table.table)
+
+        if len(list) == 0:
+            print(" No hay datos para mostrar")
+
+
