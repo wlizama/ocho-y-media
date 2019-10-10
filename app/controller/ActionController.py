@@ -1,4 +1,5 @@
 from ..dao.SQLServerConnection import SQLServerConnection
+from ..model.ActionModel import ActionModel
 
 class ActionController:
 
@@ -18,3 +19,14 @@ class ActionController:
     def get_actions_list(self):
         list = self.__sql_con.execute_list("action")
         return list
+
+
+    def get_actions_list_model(self):
+        action_list = self.get_actions_list()
+
+        action_list_model = []
+        for action in action_list:
+            objActionM = ActionModel(action[0], action[1], action[2], action[3])
+            action_list_model.append(objActionM)
+
+        return action_list_model

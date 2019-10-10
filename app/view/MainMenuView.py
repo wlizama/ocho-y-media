@@ -12,7 +12,7 @@ class MainMenuView:
                 {
                     'value': 'exc',
                     'name': 'Ejecutar 08:30',
-                    'action': OchoYMediaController.fnTest
+                    'action': OchoYMediaController.exec_actions
                 },
                 {
                     'value': 'add',
