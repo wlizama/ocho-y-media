@@ -3,4 +3,7 @@ venv/
 .vscode/
 __pycache__/
 scripts/
+build/
+dist/
+*.spec
 *.ini
